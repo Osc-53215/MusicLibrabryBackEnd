@@ -19,7 +19,7 @@ app.get('/api/songs', (req, res) => {
 
 
 
-// GET request through id
+//GET request through id
 
 app.get('/api/songs/:id', (req, res) => {
     const id = req.params.id;
@@ -35,7 +35,7 @@ app.post('/api/songs', (req, res) => {
     return res.send(addedSong);
    });
 
-// PUT request
+//PUT request
 
 app.put('/api/songs/:id', (req, res) => {
     const id = req.params.id;
@@ -43,3 +43,12 @@ app.put('/api/songs/:id', (req, res) => {
     const updatedSong = repoContext.songs.updateSong(id, songPropertiesToUpdate);
     return res.send(updatedSong)
    });
+
+//DELETE request
+
+app.delete('/api/songs/:id', (req, res) => {
+    const id = req.params.id;
+    const updatedDataSet = repoContext.songs.deleteSong(id);
+    return res.send(updatedDataSet);
+   });
+   
