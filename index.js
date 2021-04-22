@@ -34,4 +34,12 @@ app.post('/api/songs', (req, res) => {
     const addedSong = repoContext.songs.createSong(newSong);
     return res.send(addedSong);
    });
-   
+
+// PUT request
+
+app.put('/api/songs/:id', (req, res) => {
+    const id = req.params.id;
+    const songPropertiesToUpdate = req.body;
+    const updatedSong = repoContext.songs.updateSong(id, songPropertiesToUpdate);
+    return res.send(updatedSong)
+   });
