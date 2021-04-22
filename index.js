@@ -14,7 +14,7 @@ app.listen(8000, function () {
 
 //GET request for whole music library
 
-app.get('/api/songs', (res) => {
+app.get('/api/songs', (req, res) => {
     const songs = repoContext.songs.findAllSongs();
     return res.send(songs);
    });
